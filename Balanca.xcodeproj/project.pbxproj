@@ -7,29 +7,41 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DA0BC064251D5FCC0023B505 /* AV.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0BC062251D5FCC0023B505 /* AV.swift */; };
+		DA0BC065251D5FCC0023B505 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0BC063251D5FCC0023B505 /* Camera.swift */; };
+		DA0BC06C251D77670023B505 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0BC06B251D77670023B505 /* GameScene.swift */; };
 		DA324039251A726200E630F3 /* TextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA324038251A726200E630F3 /* TextButton.swift */; };
 		DA32403D251A72B500E630F3 /* RepeatButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA32403C251A72B500E630F3 /* RepeatButton.swift */; };
 		DA324040251A733400E630F3 /* WeightScale.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA32403F251A733400E630F3 /* WeightScale.swift */; };
 		DA324048251A74A800E630F3 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA324047251A74A800E630F3 /* HomeView.swift */; };
+		DA3F71B0251E6B9F00C617F5 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = DA3F71AF251E6B9F00C617F5 /* art.scnassets */; };
 		DA8F3EBB2518091200AA9234 /* BalancaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8F3EBA2518091200AA9234 /* BalancaApp.swift */; };
 		DA8F3EBD2518091200AA9234 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8F3EBC2518091200AA9234 /* ContentView.swift */; };
 		DA8F3EBF2518091400AA9234 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA8F3EBE2518091400AA9234 /* Assets.xcassets */; };
 		DA8F3EC22518091400AA9234 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA8F3EC12518091400AA9234 /* Preview Assets.xcassets */; };
-		DA953E0E251A66AE0058ED36 /* ARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA953E0D251A66AE0058ED36 /* ARView.swift */; };
+		DA953E0E251A66AE0058ED36 /* ARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA953E0D251A66AE0058ED36 /* ARViewController.swift */; };
+		DA96488D251E6D7E001B4CBF /* SKViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA96488C251E6D7E001B4CBF /* SKViewWrapper.swift */; };
+		DA964895251E6F03001B4CBF /* ARViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA964894251E6F03001B4CBF /* ARViewWrapper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DA0BC062251D5FCC0023B505 /* AV.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AV.swift; sourceTree = "<group>"; };
+		DA0BC063251D5FCC0023B505 /* Camera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
+		DA0BC06B251D77670023B505 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		DA324038251A726200E630F3 /* TextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextButton.swift; sourceTree = "<group>"; };
 		DA32403C251A72B500E630F3 /* RepeatButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatButton.swift; sourceTree = "<group>"; };
 		DA32403F251A733400E630F3 /* WeightScale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightScale.swift; sourceTree = "<group>"; };
 		DA324047251A74A800E630F3 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		DA3F71AF251E6B9F00C617F5 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
 		DA8F3EB72518091200AA9234 /* Balanca.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Balanca.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA8F3EBA2518091200AA9234 /* BalancaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalancaApp.swift; sourceTree = "<group>"; };
 		DA8F3EBC2518091200AA9234 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		DA8F3EBE2518091400AA9234 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DA8F3EC12518091400AA9234 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		DA8F3EC32518091400AA9234 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DA953E0D251A66AE0058ED36 /* ARView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARView.swift; sourceTree = "<group>"; };
+		DA953E0D251A66AE0058ED36 /* ARViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewController.swift; sourceTree = "<group>"; };
+		DA96488C251E6D7E001B4CBF /* SKViewWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKViewWrapper.swift; sourceTree = "<group>"; };
+		DA964894251E6F03001B4CBF /* ARViewWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewWrapper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +55,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DA0BC06A251D774F0023B505 /* SpriteKit */ = {
+			isa = PBXGroup;
+			children = (
+				DA0BC06B251D77670023B505 /* GameScene.swift */,
+				DA96488C251E6D7E001B4CBF /* SKViewWrapper.swift */,
+			);
+			path = SpriteKit;
+			sourceTree = "<group>";
+		};
 		DA324037251A724D00E630F3 /* Componnents */ = {
 			isa = PBXGroup;
 			children = (
@@ -74,10 +95,12 @@
 			children = (
 				DA8F3EBA2518091200AA9234 /* BalancaApp.swift */,
 				DA8F3EBC2518091200AA9234 /* ContentView.swift */,
-				DA324047251A74A800E630F3 /* HomeView.swift */,
-				DA953E0D251A66AE0058ED36 /* ARView.swift */,
-				DA324037251A724D00E630F3 /* Componnents */,
+				DA964890251E6E03001B4CBF /* Views */,
+				DA0BC06A251D774F0023B505 /* SpriteKit */,
+				DA964892251E6E59001B4CBF /* ARKit */,
+				DA96488F251E6DF5001B4CBF /* Utils */,
 				DA8F3EBE2518091400AA9234 /* Assets.xcassets */,
+				DA3F71AF251E6B9F00C617F5 /* art.scnassets */,
 				DA8F3EC32518091400AA9234 /* Info.plist */,
 				DA8F3EC02518091400AA9234 /* Preview Content */,
 			);
@@ -90,6 +113,41 @@
 				DA8F3EC12518091400AA9234 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		DA96488F251E6DF5001B4CBF /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				DA0BC062251D5FCC0023B505 /* AV.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		DA964890251E6E03001B4CBF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DA964891251E6E14001B4CBF /* Pages */,
+				DA324037251A724D00E630F3 /* Componnents */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DA964891251E6E14001B4CBF /* Pages */ = {
+			isa = PBXGroup;
+			children = (
+				DA324047251A74A800E630F3 /* HomeView.swift */,
+				DA0BC063251D5FCC0023B505 /* Camera.swift */,
+			);
+			path = Pages;
+			sourceTree = "<group>";
+		};
+		DA964892251E6E59001B4CBF /* ARKit */ = {
+			isa = PBXGroup;
+			children = (
+				DA953E0D251A66AE0058ED36 /* ARViewController.swift */,
+				DA964894251E6F03001B4CBF /* ARViewWrapper.swift */,
+			);
+			path = ARKit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,6 +208,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA8F3EC22518091400AA9234 /* Preview Assets.xcassets in Resources */,
+				DA3F71B0251E6B9F00C617F5 /* art.scnassets in Resources */,
 				DA8F3EBF2518091400AA9234 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -163,11 +222,16 @@
 			files = (
 				DA324039251A726200E630F3 /* TextButton.swift in Sources */,
 				DA324048251A74A800E630F3 /* HomeView.swift in Sources */,
+				DA0BC064251D5FCC0023B505 /* AV.swift in Sources */,
 				DA8F3EBD2518091200AA9234 /* ContentView.swift in Sources */,
 				DA8F3EBB2518091200AA9234 /* BalancaApp.swift in Sources */,
-				DA953E0E251A66AE0058ED36 /* ARView.swift in Sources */,
+				DA964895251E6F03001B4CBF /* ARViewWrapper.swift in Sources */,
+				DA953E0E251A66AE0058ED36 /* ARViewController.swift in Sources */,
+				DA96488D251E6D7E001B4CBF /* SKViewWrapper.swift in Sources */,
 				DA324040251A733400E630F3 /* WeightScale.swift in Sources */,
+				DA0BC06C251D77670023B505 /* GameScene.swift in Sources */,
 				DA32403D251A72B500E630F3 /* RepeatButton.swift in Sources */,
+				DA0BC065251D5FCC0023B505 /* Camera.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

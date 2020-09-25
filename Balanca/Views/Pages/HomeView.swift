@@ -10,6 +10,8 @@ import Foundation
 
 struct HomeView: View {
     
+    @Binding var page:String
+    
     @State var weight:Double = 0
     @State var buttonTap:Bool = false
     @State var repeatTap:Bool = false
@@ -74,9 +76,12 @@ struct HomeView: View {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                         self.buttonTap = false
                     }
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                        self.page = "AR"
+                    }
+                    
                 })
                 .animation(.easeInOut)
-//                .padding(.top, 90)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color(UIColor(red: 235/255, green: 236/255, blue: 240/255, alpha: 1)))
@@ -105,8 +110,8 @@ struct HomeView: View {
     }
 }
 
-struct HomeView_Previews: PreviewProvider {
-    static var previews: some View {
-        HomeView()
-    }
-}
+//struct HomeView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        HomeView()
+//    }
+//}
