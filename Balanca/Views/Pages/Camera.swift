@@ -4,12 +4,9 @@ import AVFoundation
 
 struct CustomCameraView: View {
     
-    @Binding var showCamera: Bool
-    
     var body: some View {
         ZStack(alignment: .center) {
             CustomCameraRepresentable()
-            CaptureButtonView(showCamera: self.$showCamera)
         }
     }
 }

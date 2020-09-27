@@ -19,27 +19,46 @@ struct ContentView: View {
     
     @State var showCamera:Bool = true
     @State var page:String = "Home"
+    @State var selectedView:Int = 0
+    private let viewTypes:[String] = ["2D", "3D"]
     
     var body: some View {
         if page == "Home"{
             HomeView(page: self.$page)
         }
         else{
-            // SpritKit view with live camera as background
-//            SKViewWrapper(scene: scene)
-//                .background(CustomCameraView(showCamera: self.$showCamera))
-//                .edgesIgnoringSafeArea(.all)
-            // ARView
-            ZStack{
-                ARViewWrapper()
-                VStack {
-                    Spacer()
-                    Spacer()
+            Picker(selection: self.$selectedView, label: Text("Escolha uma forma de visualização")){
+                ForEach(0..<self.viewTypes.count){
+                    Text("\(self.viewTypes[$0])")
+                }
+            }.pickerStyle(SegmentedPickerStyle())
+            
+            if (self.selectedView == 0){
+                // SpritKit view with live camera as background
+                ZStack(alignment: .bottom){
+                    SKViewWrapper(scene: scene)
+                        .background(CustomCameraView())
+                        .edgesIgnoringSafeArea(.all)
                     Button("Home") {
                         self.page = "Home"
                     }.padding()
                     .background(RoundedRectangle(cornerRadius: 10)
                                     .foregroundColor(Color.white).opacity(0.7))
+                }
+            }
+            else{
+                // ARView
+                ZStack{
+                    ARViewWrapper()
+                    VStack {
+                        Spacer()
+                        Spacer()
+                        Button("Home") {
+                            self.page = "Home"
+                        }.padding()
+                        .background(RoundedRectangle(cornerRadius: 10)
+                                        .foregroundColor(Color.white).opacity(0.7))
+                    }
                 }
             }
         }

@@ -38,6 +38,7 @@ class ARView: UIViewController, ARSCNViewDelegate {
         setupCamera()
         setupFloorBox()
         spawnShape(nLeafs: 500)
+//        setupParticle()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -121,6 +122,36 @@ class ARView: UIViewController, ARSCNViewDelegate {
         }
     }
     
+    func setupParticle(){
+        let particleSystem = SCNParticleSystem()
+        particleSystem.birthRate = 20
+        particleSystem.birthDirection = .constant
+        particleSystem.emittingDirection = SCNVector3(x: 0, y: -1, z: 0)
+        
+//        particleSystem.birthRate = 50
+//        particleSystem.particleSize = 0.05
+//        particleSystem.stretchFactor = 2
+        particleSystem.particleLifeSpan = 3
+        particleSystem.particleVelocity = 10
+        particleSystem.particleBounce = 0.5
+        
+        particleSystem.particleImage = "🍃".image()
+        particleSystem.spreadingAngle = 5
+        particleSystem.birthLocation = .vertex
+        particleSystem.emitterShape = SCNBox(width: 0.1, height: 0.1, length: 0.1, chamferRadius: 0)
+        
+        let psNode = SCNNode()
+        psNode.addParticleSystem(particleSystem)
+//        psNode.scale = SCNVector3(1, 1, 1)
+        psNode.position = SCNVector3(0, 10, -20)
+        
+        let action = SCNAction.sequence([SCNAction.scale(by: 5, duration: 10)])
+        psNode.runAction(action)
+        sceneView.scene.rootNode.addChildNode(psNode)
+        
+//        self.sceneView.scene.addParticleSystem(particleSystem, transform: SCNMatrix4MakeScale(0, 0, 1))
+    }
+    
     // Create a wall node
     func createWall(x: CGFloat, y: CGFloat, z: CGFloat) -> SCNNode{
         let wall = SCNBox(width: 0.2, height: 5, length: 10.0, chamferRadius: 0.0)
@@ -137,4 +168,18 @@ class ARView: UIViewController, ARSCNViewDelegate {
         return wallNode
     }
 
+}
+
+extension String {
+    func image() -> UIImage? {
+        let size = CGSize(width: 40, height: 40)
+        UIGraphicsBeginImageContextWithOptions(size, false, 0)
+        UIColor.white.set()
+        let rect = CGRect(origin: .zero, size: size)
+        UIRectFill(CGRect(origin: .zero, size: size))
+        (self as AnyObject).draw(in: rect, withAttributes: [.font: UIFont.systemFont(ofSize: 40)])
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image
+    }
 }
