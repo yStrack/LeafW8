@@ -9,8 +9,6 @@ import SpriteKit
 
 class GameScene: SKScene {
     
-    var leafCount:Int = 0
-    
     override func didMove(to view: SKView) {
         physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
         spawnLeafs(limit: 1000)
@@ -21,13 +19,13 @@ class GameScene: SKScene {
         let wait = SKAction.wait(forDuration: 0.3)
         let spawn = SKAction.run {
             // Create a new node and it add to the scene...
-            if (self.leafCount < limit){
+            if (DAO.instance.getLeafCount() < DAO.instance.getLimit()){
                 let leaf = SKSpriteNode(imageNamed: "leaf")
                 leaf.position = CGPoint(x: CGFloat.random(in: 1..<UIScreen.main.bounds.maxX), y: UIScreen.main.bounds.maxY)
                 leaf.zPosition = 3
                 leaf.physicsBody = SKPhysicsBody(circleOfRadius: 20)
                 leaf.physicsBody?.affectedByGravity = true
-                self.leafCount += 1
+                DAO.instance.increaseLeafCount()
                 self.addChild(leaf)
             }
         }

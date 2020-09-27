@@ -69,21 +69,21 @@ struct HomeView: View {
             
             
             // Ready button
-            Button(action: {}){
-                TextButton(text: "Pronto")
-                    .scaleEffect(self.buttonTap ? 0.9 : 1)
-                    .onTapGesture(perform: {
-                        self.buttonTap = true
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                            self.buttonTap = false
-                        }
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                            self.page = "AR"
-                        }
-                        
-                    })
-                    .animation(.easeInOut)
-            }.disabled(self.weight > 0 ? false:true)
+            TextButton(text: "Pronto")
+                .scaleEffect(self.buttonTap ? 0.9 : 1)
+                .onTapGesture(perform: {
+                    self.buttonTap = true
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                        self.buttonTap = false
+                    }
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                        DAO.instance.setLimit(limit: Calculator.instance.getLeafAmount(weight: self.weight))
+                        DAO.instance.setWeight(weight: self.weight)
+                        self.page = "AR"
+                    }
+                    
+                })
+                .animation(.easeInOut)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color(UIColor(red: 235/255, green: 236/255, blue: 240/255, alpha: 1)))
