@@ -20,8 +20,8 @@ struct HomeView: View {
     @State private var startDate: Date? = nil
     @State private var timer: Timer? = nil
 
-    private static let thresholds = (slow: TimeInterval(0.3), fast: TimeInterval(0.003))
-    private static let timeToMax = TimeInterval(2.5)
+    private static let thresholds = (slow: TimeInterval(0.2), fast: TimeInterval(0.001))
+    private static let timeToMax = TimeInterval(2.0)
 
     
     var body: some View {

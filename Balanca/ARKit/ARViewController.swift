@@ -31,14 +31,13 @@ class ARView: UIViewController, ARSCNViewDelegate {
         // Set the view's delegate
         sceneView.delegate = self
         
-        // Show statistics such as fps and timing information
-        sceneView.showsStatistics = true
+        // Hide statistics such as fps and timing information
+        sceneView.showsStatistics = false
         
         setupScene()
         setupCamera()
         setupFloorBox()
-        spawnShape(nLeafs: 500)
-//        setupParticle()
+        spawnShape()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -107,49 +106,23 @@ class ARView: UIViewController, ARSCNViewDelegate {
         sceneView.scene.rootNode.addChildNode(frontWallNode)
     }
     
-    func spawnShape(nLeafs: Int) {
-        // Creating and adding X leafs to scene
-        for _ in 1...nLeafs{
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+    func spawnShape(){
+        let wait = SCNAction.wait(duration: 0.3)
+        let spawn = SCNAction.run { _ in
+            // Create a new node and it add to the scene...
+            if (DAO.instance.getLeafCount() < DAO.instance.getLimit()){
                 let leaf = SCNScene(named: "art.scnassets/leaf.dae")
                 guard let leafNode = leaf?.rootNode.childNode(withName: "leaf", recursively: true) else {return}
-                leafNode.position = SCNVector3(0, 10, -20)
+                leafNode.position = SCNVector3(Int.random(in: -3..<4), 10, -20)
                 leafNode.physicsBody = SCNPhysicsBody(type: .dynamic, shape: nil)
-                //            leafNode.scale = SCNVector3(x: 2.5, y: 2.5, z: 2.5)
-                
+                leafNode.physicsBody?.isAffectedByGravity = true
+                DAO.instance.increaseLeafCount()
                 self.sceneView.scene.rootNode.addChildNode(leafNode)
             }
         }
-    }
-    
-    func setupParticle(){
-        let particleSystem = SCNParticleSystem()
-        particleSystem.birthRate = 20
-        particleSystem.birthDirection = .constant
-        particleSystem.emittingDirection = SCNVector3(x: 0, y: -1, z: 0)
-        
-//        particleSystem.birthRate = 50
-//        particleSystem.particleSize = 0.05
-//        particleSystem.stretchFactor = 2
-        particleSystem.particleLifeSpan = 3
-        particleSystem.particleVelocity = 10
-        particleSystem.particleBounce = 0.5
-        
-        particleSystem.particleImage = "🍃".image()
-        particleSystem.spreadingAngle = 5
-        particleSystem.birthLocation = .vertex
-        particleSystem.emitterShape = SCNBox(width: 0.1, height: 0.1, length: 0.1, chamferRadius: 0)
-        
-        let psNode = SCNNode()
-        psNode.addParticleSystem(particleSystem)
-//        psNode.scale = SCNVector3(1, 1, 1)
-        psNode.position = SCNVector3(0, 10, -20)
-        
-        let action = SCNAction.sequence([SCNAction.scale(by: 5, duration: 10)])
-        psNode.runAction(action)
-        sceneView.scene.rootNode.addChildNode(psNode)
-        
-//        self.sceneView.scene.addParticleSystem(particleSystem, transform: SCNMatrix4MakeScale(0, 0, 1))
+
+        let sequence = SCNAction.sequence([wait, spawn])
+        self.sceneView.scene.rootNode.runAction(SCNAction.repeatForever(sequence))
     }
     
     // Create a wall node

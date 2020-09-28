@@ -10,7 +10,7 @@ import SpriteKit
 class GameScene: SKScene {
     
     override func didMove(to view: SKView) {
-        physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
+        physicsBody = SKPhysicsBody(edgeLoopFrom: UIScreen.main.bounds)
         spawnLeafs(limit: 1000)
     }
     
