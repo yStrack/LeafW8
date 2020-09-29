@@ -43,7 +43,7 @@ struct ContentView: View {
                     VStack(alignment: .center){
                         // Equivalent text
                         VStack{
-                            Text("Você equivale a:")
+                            Text("Você pesa:")
                                 .foregroundColor(Color(UIColor(red: 109/255, green: 117/255, blue: 135/255, alpha: 1)))
                                 .font(.system(size: 32, weight: .bold, design: .rounded))
                             Text("\(Calculator.instance.getLeafAmount(weight: DAO.instance.getWeight())) 🍃")
@@ -71,7 +71,7 @@ struct ContentView: View {
                     VStack(alignment: .center){
                         // Equivalent text
                         VStack{
-                            Text("Você equivale a:")
+                            Text("Você pesa:")
                                 .foregroundColor(Color(UIColor(red: 109/255, green: 117/255, blue: 135/255, alpha: 1)))
                                 .font(.system(size: 32, weight: .bold, design: .rounded))
                             Text("\(Calculator.instance.getLeafAmount(weight: DAO.instance.getWeight())) 🍃")

@@ -99,7 +99,12 @@ struct HomeView: View {
     
     private func timerFired(timer: Timer) {
         guard let startDate = self.startDate else { return }
-        self.weight += 0.01
+        if (self.weight < 40.0){
+            self.weight += 10
+        }
+        else{
+            self.weight += 0.01
+        }
         let timePassed = Date().timeIntervalSince(startDate)
         let newSpeed = Self.thresholds.slow - timePassed * (Self.thresholds.slow - Self.thresholds.fast)/Self.timeToMax
         let nextFire = Date().advanced(by: max(newSpeed, Self.thresholds.fast))
